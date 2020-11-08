@@ -1,0 +1,47 @@
+<div class="container"> <div class="row" style="margin-bottom:15px;">
+    <div class="col-md-4">Please select a csv file to upload</div>
+    </div>
+    <div class="row">
+    <div class="col-md-3">
+      <input type="file" #file placeholder="Choose file" (change)="uploadFile(file.files)" style="display:none;">
+      <button type="button" class="btn btn-success" (click)="file.click()">Upload File</button>
+    
+    </div>
+    <div class="col-md-4">
+      <span class="upload" *ngIf="progress > 0">
+        {{progress}}%
+      </span>
+      <span class="upload" *ngIf="message">
+        {{message}}
+      </span>
+    </div>
+  </div>
+  <br>
+  <div>  
+    <h3 class="text-center text-uppercase">List of Users</h3>  
+    <table class="table table-bordered table-striped">  
+        <thead>  
+            <tr class="text-center text-uppercase">  
+                <th>Scheme ID</th>  
+                <th>First Name</th>  
+                <th>Last Name</th>  
+                <th>Email</th>  
+                <th>Mobile</th>
+                <th>Error</th>
+              </tr>  
+        </thead>  
+        <tbody>  
+          <tr *ngFor="let emp of users" >  
+            <td>{{emp.schemeId}}</td>  
+            <td>{{emp.firstName}}</td>  
+            <td>{{emp.lastName}}</td>  
+            <td>{{emp.email}}</td>  
+            <td>{{emp.mobile}}</td>  
+            <td>{{emp.error}}</td>  
+          </tr>  
+        </tbody>  
+      </table>  
+    </div> </div>
+    <ngx-spinner bdColor="rgba(51, 51, 51, 0.8)" size="default" type="ball-spin-clockwise">  
+        <p style="color: white">Please Wait. </p>  
+        </ngx-spinner>  
